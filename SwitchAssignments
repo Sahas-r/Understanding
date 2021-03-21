@@ -25,8 +25,7 @@ public class AllAssignments {
 			SumOfLastThree();
 			break;
 		case 3:
-			System.out
-					.println("You have selected the program to calculate the sum of Odd and Even digits of a number.");
+			System.out.println("You have selected the program to calculate the sum of Odd and Even digits of a number.");
 			break;
 		case 4:
 			System.out.println("You have selected the program to find out the maximum valued digit in a number.");
