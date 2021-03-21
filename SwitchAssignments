@@ -1,0 +1,114 @@
+package ProgrammingClass;
+
+import java.util.Scanner;
+
+public class AllAssignments {
+
+	public static void main(String[] args) {
+
+		System.out.println("Hey there! Welcome to my assignments!");
+		System.out.println("\nKindly enter one of the following numbers,\nto execute the corresponding program.");
+		System.out.println(
+				"\nPress 1: Total number of digits in a number. \nPress 2: Sum of the last 3 digits of a number. \nPress 3: Sum of odd and even digits of a number. \nPress 4: Maximum digit value, in a number.");
+		System.out.print("\nAll set? Enter here: ");
+		Scanner se = new Scanner(System.in);
+		int selector = se.nextInt();
+		se.close();
+
+		switch (selector) {
+		case 1:
+			System.out.println("You have selected the program for total digits in a number.");
+			TotalDigits();
+			break;
+		case 2:
+			System.out.println("You have selected the program to calculate the sum of the last 3 digits of a number.");
+			SumOfLastThree();
+			break;
+		case 3:
+			System.out
+					.println("You have selected the program to calculate the sum of Odd and Even digits of a number.");
+			break;
+		case 4:
+			System.out.println("You have selected the program to find out the maximum valued digit in a number.");
+			break;
+
+		default:
+			System.out.println("Oops! Please enter, either 1, or 2, or 3, or, 4.\nThank You! :)");
+
+		}
+
+	}
+
+	public static void TotalDigits() {
+		System.out.print("So, kindly enter a number, to proceed: ");
+		Scanner sc = new Scanner(System.in);
+		int num = sc.nextInt();
+		sc.close();
+		int counter = 1;
+		int temp = num;
+		while (num > 0) {
+			num = num / 10;
+			if (num > 0) {
+				counter++;
+			}
+		}
+		System.out.println("Number of digits in " + temp + " = " + counter);
+	}
+
+	public static void SumOfLastThree() {
+		System.out.print("So, kindly enter a number, to proceed: ");
+		Scanner sc = new Scanner(System.in);
+		int num = sc.nextInt();
+		sc.close();
+		int sum = 0;
+		int temp = num;
+		for (int counter = 1; counter <= 3; counter++) {
+			int rem = num % 10;
+			num = num / 10;
+			sum = sum + rem;
+		}
+		System.out.println("The sum of last 3 digits of " + temp + " = " + sum);
+	}
+
+	public static void SumOfOddEven() {
+		System.out.print("So, kindly enter a number, to proceed: ");
+		Scanner sc = new Scanner(System.in);
+		int num = sc.nextInt();
+		sc.close();
+
+		int sum_odd = 0, sum_even = 0;
+		while (num > 0) {
+			int rem = num % 10;
+			if (rem % 2 == 0) {
+				sum_even = sum_even + rem;
+			} else {
+				sum_odd = sum_odd + rem;
+			}
+			num = num / 10;
+		}
+		System.out.println("Sum of even numbers is: " + sum_even);
+		System.out.println("Sum of odd numbers is: " + sum_odd);
+	}
+
+	public static void MaxValDigit() {
+		System.out.print("So, kindly enter a number, to proceed: ");
+		Scanner sc = new Scanner(System.in);
+		int num = sc.nextInt();
+		sc.close();
+
+		int num_max = 0;
+		int step = 1;
+		while (num > 0) {
+			int rem = num % 10;
+			if (rem > num_max) {
+				num_max = rem;
+				System.out.println("\t\t(Processing, wait - " + (step++) + ")");
+			} else {
+				System.out.println("\t\t(Processing, wait - " + (step++) + ")");
+
+			}
+			num = num / 10;
+		}
+		System.out.println("Max digit = " + num_max);
+	}
+}
