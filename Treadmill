@@ -1,0 +1,90 @@
+package recap;
+
+/* Homework 
+ * Real-time example of Method Overloading
+ * With Inheritance
+ * Date:- 29.03.2021
+ */
+import java.util.Scanner;
+
+public class Treadmill {
+
+	public static void main(String[] args) {
+		System.out.println("\t---Treadmill Dashboard---");
+		System.out.println("\nKindly choose your Activity: ");
+		System.out.println(
+				"\nPress 1: To set SPEED and TIME. \n\nPress 2: To set SPEED only.\n[Note: Post workout, you have to STOP manually.]");
+		System.out.print("\nEnter your selection here: ");
+		Scanner sc = new Scanner(System.in);
+		int sel = sc.nextInt();
+
+		switch (sel) {
+		case 1:
+			System.out.println("[CONFIRMATION: ] You have decided to set SPEED & TIME.");
+			Treadmill_Start_Action ref1 = new Treadmill_Start_Action();
+			ref1.Treadmill_Set_Option(5, 10);
+
+			System.out.print("To Stop, enter true: ");
+			boolean action = sc.nextBoolean();
+			Treadmill_Stop_Action ref3 = new Treadmill_Stop_Action();
+			ref3.Treadmill_Set_Option(5, 10, action);
+
+			break;
+
+		case 2:
+			System.out.println("[CONFIRMATION: ] You have decided to set SPEED only.");
+			Treadmill_Start_Action ref2 = new Treadmill_Start_Action();
+			ref2.Treadmill_Set_Option(5);
+			System.out.print("To Stop, enter true: ");
+			Treadmill_Stop_Action ref4 = new Treadmill_Stop_Action();
+			boolean action2 = sc.nextBoolean();
+			ref4.Treadmill_Set_Option(5, 10, action2);
+			break;
+
+		default:
+			System.out.println("\tPLEASE TRY AGAIN.");
+		}
+
+	}
+
+}
+
+class Treadmill_Start_Action {
+	public void Treadmill_Set_Option(int speed) {
+		System.out.println("\nTreadmill speed has been set to: " + speed);
+	}
+
+	public void Treadmill_Set_Option(int speed, int time) {
+		System.out.println("\nTreadmill speed has been set to: " + speed);
+		System.out.println("Treadmill time has been set to: " + time);
+	}
+}
+
+class Treadmill_Stop_Action extends Treadmill_Start_Action {
+	public void Treadmill_Set_Option(int speed, int time, boolean action) {
+		if (action == true) {
+			System.out.println("Your final speed was: " + speed + " KM/hr, for the duration of: " + time + " minutes.");
+		} else {
+			System.out.println("GO ON!!!");
+		}
+	}
+}
+
+/*
+ * import java.util.Timer; import java.util.TimerTask;
+ * 
+ * class TimeCounter extends TimerTask {
+ * 
+ * public void run() { Treadmill_Start_Action counter = new
+ * Treadmill_Start_Action(); counter.time; for(int i = 0; i<=time; ++i) {
+ * 
+ * 
+ * int temp_time = i; } } }
+ * 
+ * // inside main
+ * 
+ * Timer timer = new Timer(); TimerTask task = new Helper();
+ * 
+ * timer.schedule(task, 2000, 5000);
+ * 
+ */
