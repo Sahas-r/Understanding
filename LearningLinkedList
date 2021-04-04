@@ -1,0 +1,39 @@
+package prep;
+
+public class LearningLinkedList {
+
+	public static class Node // defining node
+	{
+		int data; // node date
+		Node Next; // address of next node
+	}
+
+	public static void main(String[] args) {
+
+		Node newnode1 = new Node();
+		Node newnode2 = new Node();
+		Node newnode3 = new Node();
+		Node newnode4 = new Node();
+
+		newnode1.data = 1;
+		newnode2.data = 2;
+		newnode3.data = 3;
+		newnode4.data = 4;
+
+		// link the nodes
+
+		newnode1.Next = newnode2;
+		newnode2.Next = newnode3;
+		newnode3.Next = newnode4;
+		newnode4.Next = null;
+
+		// to print
+
+		for (int i = 1; i <= 4; i++) {
+			System.out.println(newnode1 + data + " "); // error - data cannot be resolved to a variable
+			newnode1 = newnode1.Next;
+		}
+
+	}
+
+}
